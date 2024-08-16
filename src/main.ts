@@ -173,19 +173,19 @@ const cuentaPacientesPorEspecialidad = (
   pacientes: Pacientes[]
 ): NumeroPacientesPorEspecialidad => {
   return pacientes.reduce<NumeroPacientesPorEspecialidad>(
-    (acumulador, pacientes) => {
+    (acc, pacientes) => {
       switch (pacientes.especialidad) {
         case "Medico de familia":
-          acumulador.medicoDeFamilia++;
+          acc.medicoDeFamilia++;
           break;
         case "Cardiólogo":
-          acumulador.cardiologia++;
+          acc.cardiologia++;
           break;
         case "Pediatra":
-          acumulador.pediatria++;
+          acc.pediatria++;
           break;
       }
-      return acumulador;
+      return acc;
     },
     {
       medicoDeFamilia: 0,
