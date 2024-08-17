@@ -110,12 +110,17 @@ console.log(
 //Apartado 2
 
 const activarProtocoloUrgencia = (pacientes: Pacientes[]): boolean => {
-  const activarProtocoloDeUrgencia: boolean = pacientes.every(
-    (pacientes): boolean =>
-      pacientes.frecuenciaCardiaca < 100 && pacientes.temperatura < 39
-  );
+  let activarProtocolo = false;
+  if (
+    pacientes.some(
+      (paciente: Pacientes) =>
+        paciente.frecuenciaCardiaca > 100 && paciente.temperatura > 39
+    )
+  ) {
+    activarProtocolo = true;
+  }
 
-  return activarProtocoloDeUrgencia;
+  return activarProtocolo;
 };
 
 console.log(
